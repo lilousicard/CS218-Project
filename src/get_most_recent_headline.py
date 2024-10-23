@@ -15,10 +15,10 @@ def fetch_most_recent_headline(client, company):
     query = f'''
     from(bucket: "{INFLUXDB_BUCKET}")
       |> range(start: -30d)  // Fetch records from the last 30 days
-      |> filter(fn: (r) => r["_measurement"] == "news_article")  
+      |> filter(fn: (r) => r["_measurement"] == "news_article")
       |> filter(fn: (r) => r["company"] == "{company}")
-      |> sort(columns: ["_time"], desc: true)
-      |> limit(n: 1)  // Get the most recent record
+      |> filter(fn: (r) => r["_field"] == "title" or r["_field"] == "description" or r["_field"] == "source")
+      |> last()  // Get the most recent record for each field
     '''
     
     # Execute the query

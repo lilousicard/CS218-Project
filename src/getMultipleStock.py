@@ -12,8 +12,8 @@ BUCKET_DAILY = "stock_value_daily"
 
 # Polygon.io API parameters
 API_KEY = os.environ.get("POLYGON_API_KEY")
-START_DATE = "2024-10-19"
-END_DATE = "2024-10-21"
+START_DATE = "2024-09-19"
+END_DATE = "2024-10-22"
 
 # List of stock tickers
 STOCKS = ["AAPL", "AMZN", "META", "GOOGL", "NVDA"]
@@ -65,8 +65,8 @@ for stock in STOCKS:
     # Fetch and store hourly data
     hourly_data = fetch_stock_data(stock, 'hour')
     store_stock_data(hourly_data, stock, BUCKET_HOURLY, 'hour')
-
+    time.sleep(12)
     # Fetch and store daily data
-    #daily_data = fetch_stock_data(stock, 'day')
-    #store_stock_data(daily_data, stock, BUCKET_DAILY, 'day')
+    daily_data = fetch_stock_data(stock, 'day')
+    store_stock_data(daily_data, stock, BUCKET_DAILY, 'day')
     time.sleep(12)
