@@ -9,7 +9,7 @@ import requests
 INFLUXDB_TOKEN = os.environ.get("INFLUXDB_TOKEN")
 ORG = "CS 218"
 URL = "https://us-east-1-1.aws.cloud2.influxdata.com"
-BUCKET = "article_headline"
+BUCKET = "article_stock_search"
 
 # List of companies to fetch news for
 COMPANIES = ["AAPL", "AMZN", "META", "GOOGL", "NVDA"]
