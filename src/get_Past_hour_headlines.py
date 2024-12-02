@@ -13,7 +13,7 @@ def fetch_recent_headlines(client, company):
     # Flux query to get headlines from the past 1 day for the given company
     query = f'''
     from(bucket: "{INFLUXDB_BUCKET}")
-      |> range(start: -25h)  // Fetch records from the last 1 day
+      |> range(start: -29h)  // Fetch records from the last 1 day
       |> filter(fn: (r) => r["_measurement"] == "news_article")  
       |> filter(fn: (r) => r["company"] == "{company}")
     '''
