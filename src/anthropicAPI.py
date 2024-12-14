@@ -95,7 +95,5 @@ headlines = {
 
 # Run the test
 test_sentiment_scores(client, headlines, examples)
-
-# You can also test without examples if you want to compare
 print("\nTesting without examples:")
 test_sentiment_scores(client, headlines)
